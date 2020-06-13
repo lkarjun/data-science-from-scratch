@@ -1,1 +1,1 @@
-# Data-Science-from-Scratch
+# Data-Science-from-Scratch by Joel Grus
