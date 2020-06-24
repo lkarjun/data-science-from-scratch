@@ -9,6 +9,7 @@ verify_ssl = true
 jupyterlab = "*"
 jupyter-contrib-nbextensions = "*"
 mypy = "*"
+matplotlib = "*"
 
 [requires]
 python_version = "3.8"
