@@ -10,6 +10,8 @@ mypy = "*"
 jupyterlab = "*"
 jupyter-contrib-nbextensions = "*"
 matplotlib = "*"
+jupyter = "*"
+notebook = "*"
 
 [requires]
 python_version = "3.8"
