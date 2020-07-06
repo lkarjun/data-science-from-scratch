@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import List, Tuple, Callable
 import math
 
 #Adding vectors
@@ -83,7 +83,7 @@ def shape(A) -> Tuple[int,int]:
 assert shape([[1,2,3], [4,5,6]]) == (2,3), 'error on functions'
 
 
-def get_column(A, j: int) -> Vector:
+def get_column(A, j: int) -> vector:
     return [A_i[j] for A_i in A]
 
 get_column([[1,2,3],[12,4]], 0)
@@ -100,4 +100,3 @@ def make_matrix(num_rows: int,
 def identity_matrix(n: int) -> Matrix:
     return make_matrix(n, n, lambda i, j: 1 if i == j else 0)
 
-    
