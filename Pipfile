@@ -13,6 +13,7 @@ jupyter-contrib-nbextensions = "*"
 matplotlib = "*"
 jupyter = "*"
 notebook = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.8"
