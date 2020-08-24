@@ -15,6 +15,7 @@ jupyter = "*"
 notebook = "*"
 pandas = "*"
 pillow = "*"
+scipy = "*"
 
 [requires]
 python_version = "3.8"
