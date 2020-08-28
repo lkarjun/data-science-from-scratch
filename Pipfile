@@ -16,6 +16,9 @@ notebook = "*"
 pandas = "*"
 pillow = "*"
 scipy = "*"
+beautifulsoup4 = "*"
+requests = "*"
+html5lib = "*"
 
 [requires]
 python_version = "3.8"
