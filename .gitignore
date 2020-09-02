@@ -2,3 +2,6 @@
 .vscode
 tdata.json
 from_scratch.cpython-38.pyc 
+__pycache__
+stati.cpython-38.pyc*
+stati.py
