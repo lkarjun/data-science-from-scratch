@@ -21,6 +21,7 @@ requests = "*"
 html5lib = "*"
 httplib2 = "*"
 twython = "*"
+tqdm = "*"
 
 [requires]
 python_version = "3.8"
