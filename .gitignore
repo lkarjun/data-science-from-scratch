@@ -7,3 +7,4 @@ stati.cpython-38.pyc*
 stati.py
 linearalgebra.py
 probability.py
+gradient_descent.py
