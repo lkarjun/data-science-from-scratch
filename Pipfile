@@ -23,6 +23,7 @@ httplib2 = "*"
 twython = "*"
 tqdm = "*"
 scikit-learn = "*"
+seaborn = "*"
 
 [requires]
 python_version = "3.8"
