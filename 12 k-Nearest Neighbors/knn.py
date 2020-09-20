@@ -17,6 +17,7 @@ def majority_vote(labels: List[str]) -> str:
 class LabeledPoint(NamedTuple):
     point: Vector
     label: str
+    
 def knn_classify(k: int, labeled_points: List[LabeledPoint], new_point: Vector) -> str:
     #order the labeled points from nearest to farthest.
     by_distance = sorted(labeled_points, key=lambda lp: distance(lp.point, new_point))
