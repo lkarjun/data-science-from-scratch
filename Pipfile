@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 mypy = "*"
 pylint = "*"
+pycodestyle = "*"
 
 [packages]
 jupyterlab = "*"
@@ -24,6 +25,8 @@ twython = "*"
 tqdm = "*"
 scikit-learn = "*"
 seaborn = "*"
+pep8 = "*"
+pylint = "*"
 
 [requires]
 python_version = "3.8"
