@@ -4,6 +4,7 @@ X = TypeVar("X")#generic type to represent a data point.
 
 def split_data(data: List[X], percentage: float) -> Tuple[List[X], List[X]]:
     '''split data into fractions [prob, 1-prob]'''
+    random.seed(0)
     data = data[:]
     random.shuffle(data)
     cut = int(len(data) * percentage)
