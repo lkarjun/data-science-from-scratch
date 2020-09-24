@@ -41,7 +41,7 @@ def precision(tp: int, fp: int) -> float:
 assert precision(70, 4930, 13930, 981070) == 0.014
 
 
-def recall(tp: int, fp: int, fn: int, tn: int) -> float:
+def recall(tp: int, fn: int) -> float:
     return tp / (tp+fn)
 
 
