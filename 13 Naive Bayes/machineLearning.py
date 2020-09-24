@@ -49,8 +49,8 @@ def recall(tp: int, fn: int) -> float:
 
 
 def f1_score(tp: int, fp: int, fn: int, tn: int) -> float:
-    precisionValue = precision(tp, fp, fn, tn)
-    recallValue = recall(tp, fp, fn, tn)
+    precisionValue = precision(tp, fp)
+    recallValue = recall(tp, fn)
     return 2*precisionValue*recallValue/(precisionValue+recallValue)
 #  assert f1_score(70, 4930, 1390, 981070) == 0.021671826625386997
 
