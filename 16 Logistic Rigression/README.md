@@ -7,6 +7,9 @@
         - neighbourhood of a point is same as a point
 
 # Logistic Regression
+
+    argMax E i = 1 to n Sigmoid(yiwTxi)
+
     ### Assumtion
         -> Almost linearly separable
     
