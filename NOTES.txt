@@ -1,0 +1,11 @@
+# Naive Bayes 
+  * Assumtion
+    - conditional independence of feature
+
+# K-Nearest neighbors
+   * Assumtion
+     - neighbourhood of a point is same as a point
+
+# Logistic Regression
+   * Assumtion
+     - Almost linearly separable
