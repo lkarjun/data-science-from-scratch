@@ -93,8 +93,12 @@
 
                    y* wt x + b
 
-    *SVM kernel
+    *SVM
         convert 1d to 2d to get support vector classifier. to find we use kernels
+
+        ->  Kernels finds svc in higher dimensions.
+        finds relationships between each pair of observation used to find svc
+
         kernels = ['linear’, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’]
 
 
