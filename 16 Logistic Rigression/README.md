@@ -65,3 +65,51 @@
             wTxi > 0  => xi is +ve point
         
         '''misclassified True point is -1 and classified as +v'''
+
+
+# Support Vector Machine
+     
+     * Points in right side of a line or plane its always == positive
+     * Points in left side of a line or plane its always == negative
+
+        wt x + b = -1  -> left side
+        wt x + b = 1   -> right side
+
+
+     *  Optimization function
+
+          wt x + b = -1
+          wt x + b = 1
+          _____________
+
+          wt  (x1 - x2) =   2      ----> we need to maximize this value...
+         ----            -------
+         ||w||            ||w||
+
+        such that { 1: wt x + b >= 1,
+                   -1: wt x + b <= -1}
+
+                   Or
+
+                   y* wt x + b
+
+    *SVM kernel
+        convert 1d to 2d to get support vector classifier. to find we use kernels
+        kernels = ['linear’, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’]
+
+
+    *softmax or support vector classifier
+
+        -> Allow missclassification
+        -> Allow Overlapping
+        -> maybe high bias but sure that low variance
+        
+        crossvalidation help to get best soft margin.
+
+        helps to determine the location of a threshold
+
+        points in the margin -> support vectors
+
+    *maximum margin classifier
+        
+        Are super sensitive to Outliers in the training data.
