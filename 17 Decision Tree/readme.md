@@ -9,6 +9,9 @@
         -p(+) log2(p+) - p(-) log2(p-)
         p(+) / p(-) = % of +ve class / % of -ve class.
         
+    * Information Gain 
+
+        make sure that from top to till the end. it will go and compute what the very good or total entropy value.
 
     * Gini Impurity test
 
