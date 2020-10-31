@@ -9,14 +9,15 @@
  ## Prune Regression Tree
      
     * cost complexity pruning
-         to calculate the sum of Squared Residuals for each tree.
+         calculate the sum of Squared Residuals for each tree.
      
     * Weakest Link Pruning
     
-          Works by calculating a Tree score and a tree complexity penalty(no of leafs or terminaa nodes, in the tree or sub-tree)
+         Works by calculating a Tree score and a tree complexity penalty(no of leafs or terminal nodes in tree or sub-tree)
           
                Tree Score = sum of squared residual + alpha*T
                
                ** alpha tuning parameter that finds when using crossvalidation.
                
-        
+               
+       -> choose tree structure which gives tree score = small.
