@@ -25,14 +25,27 @@
         Threshold Activation
         
      
+     * Derivatives 
+     
+         sigmoid  -->   g(z)  =   1/1+e^-z)
+                         
+                        g(z)*(1-g(z))
+                     
+         
+         tanh    -->    g(z)  = 1-(tan(z))^2
+         
+         
+         relu    -->    g'(z)  = 0 if z < 0
+                                 1 if z > 0
+     
      
      * Pros and cons of Activation functions
              
              sigmoid  --> only use when output is a binary classification.
              
-             Tanh     --> pretty much strictly superio
+             Tanh     --> pretty much strictly superior
              
-             Relu     --> 
+             Relu     --> when output like house price predicition Relu is best option.
      
      
      
