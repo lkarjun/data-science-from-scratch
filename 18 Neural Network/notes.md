@@ -18,4 +18,9 @@
         
         Threshold Activation
         
-        
+     
+     
+     * Hidden Layers
+         
+         The fact that in the training set the true values for nodes in the middle are not observed.
+         that is, we don't see what they should be in the training set.
