@@ -7,9 +7,15 @@
    
         sigmoid
              
-            Activation (1/1+e^-y
+            y = sigma i=1 to n wixi + bias
+            Activation (1/1+e^-y)
             
         ReLu ( Rectified Linear Unit)
+        
+            max(y, o)
+            
         softplus
+        
+        Threshold Activation
         
         
