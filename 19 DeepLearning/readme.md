@@ -1,5 +1,7 @@
 ## Deep Learning.
     
+    --> The difference between cost function and loss function is that the loss funciton computes the error for a single training example; the cost function is the average of the loss function of the entire training set.
+    
     # The Neuron
     
         * inputs ===> Neuron ===> Output signal
