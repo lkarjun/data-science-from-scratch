@@ -2,6 +2,14 @@
     
     --> The difference between cost function and loss function is that the loss funciton computes the error for a single training example; the cost function is the average of the loss function of the entire training set.
     
+    # Symmetry problem
+        * If the gradients are equal then weights are going to be updated by the same amount.
+          The weights attached to the same neuron, continue to remain the same throughout the
+          trianing. Its makes the hidden units symmetric and this problem is know as the 
+          Symmetry Problem.
+          
+        * To break this we should initialize different random weights to the same neurons.
+    
     # The Neuron
     
         * inputs ===> Neuron ===> Output signal
