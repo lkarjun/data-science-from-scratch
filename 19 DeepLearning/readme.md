@@ -10,8 +10,11 @@
           
         * To break this we should initialize different random weights to the same neurons.
         
-        * Never initailize weights to large values, same value for all nodes, zero
-    
+        * Never initailize weights to large values, same value for all nodes, zeros.
+        
+        * Initialization of weights from Uniform, standard normal distribution, Xavier inintailization.
+        
+      
     # The Neuron
     
         * inputs ===> Neuron ===> Output signal
