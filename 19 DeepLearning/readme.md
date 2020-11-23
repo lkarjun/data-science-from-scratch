@@ -9,6 +9,8 @@
           Symmetry Problem.
           
         * To break this we should initialize different random weights to the same neurons.
+        
+        * Never initailize weights to large values, same value for all nodes, zero
     
     # The Neuron
     
