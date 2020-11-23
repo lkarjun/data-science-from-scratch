@@ -59,3 +59,13 @@ def sqerror_gradients(network: List[List[Vector]],
                     for i, hidden_neuron in enumerate(network[0])]
 
     return [hidden_grads, output_grads]
+
+
+
+
+def binary_encode(x: int) -> Vector:
+    binary: List[float] = []
+    for i in range(10):
+        binary.append(x % 2)
+        x = x // 2
+    return binary
