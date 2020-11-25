@@ -2,6 +2,13 @@ from linearalgebra import Vector, dot
 import math
 from typing import List
 
+def binary_encode(x: int) -> Vector:
+    binary: List[float] = []
+    for i in range(10):
+        binary.append(x % 2)
+        x = x // 2
+    return binary
+
 def sigmoid(t: float) -> float:
     return 1/(1+math.exp(-t))
 
