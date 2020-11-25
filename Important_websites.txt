@@ -1,0 +1,9 @@
+https://stats.stackexchange.com/questions/211436/why-do-we-normalize-images-by-subtracting-the-datasets-image-mean-and-not-the-c
+
+http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/
+
+https://jmlr.org/
+
+https://www.j-pcs.org/printarticle.asp?issn=2395-5414;year=2018;volume=4;issue=1;spage=33;epage=36;aulast=Kumari
+
+https://www.superdatascience.com/pages/deep-learning
