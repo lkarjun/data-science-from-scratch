@@ -14,7 +14,12 @@
         
         * Initialization of weights from Uniform, standard normal distribution, Xavier inintailization.
         
-      
+    
+    # Drop out neuron
+    
+        * Neural network are prone to overfiting to their training data. To tackle this we randomly turn off neurons ( that is replace its output with 0 ) with some fixed probability.
+        * Drop out ratio 0 < p < 1 
+    
     # The Neuron
     
         * inputs ===> Neuron ===> Output signal
