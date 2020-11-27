@@ -17,8 +17,10 @@
     
     # Drop out neuron
     
-        * Neural network are prone to overfiting to their training data. To tackle this we randomly turn off neurons ( that is replace its output with 0 ) with some fixed probability.
+        * Neural network are prone to overfiting to their TRAINING DATA. To tackle this we randomly turn off neurons ( that is replace its output with 0 ) with some fixed probability.
         * Drop out ratio 0 < p < 1 
+        * In test data all the neurons will connected.. all neuron are connected.
+        * To choose best p value we need to do that hyper parameter optimization.
     
     # The Neuron
     
