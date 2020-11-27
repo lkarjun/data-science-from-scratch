@@ -14,16 +14,36 @@
         
             max(y, o)
         
+        
         Leaky Relu
            
             max(0.01z, z)
         
+        
         Tanh
         
-        softplus
+        
+        softmax
+            
+            * for multiclass classification problem we use softmax
+        
         
         Threshold Activation
         
+         softplus
+         
+         swish
+         
+         Elu
+         
+         PRelu
+     
+     * Rectified Linear Unit
+     
+        -> Relu will solve Vanishing gradient problem.
+        
+      
+         
      
      * Derivatives 
      
