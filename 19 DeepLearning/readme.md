@@ -23,6 +23,7 @@
                 Then during gradient descent, the new weights will be
                 
                     W_new = W_old - learning_rate * grad
+                    2.1399 = 2.14 - ( 0.001 * 0.1 ) --> W_new ~~ W_old
                     
                 Learning rate times gradient will be 10^-10 which is very tiny
                 So W_new will be approximately equal to W_old itself. So after one epoch, we can see that there's no change
