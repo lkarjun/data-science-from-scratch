@@ -1,5 +1,5 @@
 ## Deep Learning.
-    
+#### MY Notes
     --> The difference between cost function and loss function is that the loss funciton computes the error for a single training example; the cost function is the average of the loss function of the entire training set.
     
     # Symmetry problem
@@ -14,7 +14,23 @@
         
         * Initialization of weights from Uniform, standard normal distribution, Xavier inintailization.
         
+    # Vanishing and exploding Gradient
     
+        * If the derivatives are large then the gradient increases exponentially. --> Exploding Gradient
+        * If the derivatives are small then the gradient decreases exponentially. --> Vanishing Gradient
+                
+                Learning rate is a small parameter.. Ranges from 0.1 to 10^-5, If gradient is very small, lets say 10^-6
+                Then during gradient descent, the new weights will be
+                
+                    W_new = W_old - learning_rate * grad
+                    
+                Learning rate times gradient will be 10^-10 which is very tiny
+                So W_new will be approximately equal to W_old itself. So after one epoch, we can see that there's no change
+                in weights Which means that the model will still be as wrong as when we started training 
+                So even after multiple epochs, you'll have nearly the same weights as you have started with
+                In effect, because of extremely small gradients, our neural network has stopped learning.
+                This is called the vanishing gradient problem
+        
     # Drop out neuron
     
         * Neural network are prone to overfiting to their TRAINING DATA. To tackle this we randomly turn off neurons ( that is replace its output with 0 ) with some fixed probability.
