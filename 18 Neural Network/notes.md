@@ -30,13 +30,17 @@
         
         Threshold Activation
         
-         softplus
+        
+        softplus
          
-         swish
+        
+        swish
          
-         Elu
+        
+        Elu
          
-         PRelu
+        
+        PRelu
      
      * Rectified Linear Unit
      
