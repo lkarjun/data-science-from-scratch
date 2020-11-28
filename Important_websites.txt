@@ -9,3 +9,5 @@ https://www.j-pcs.org/printarticle.asp?issn=2395-5414;year=2018;volume=4;issue=1
 https://www.superdatascience.com/pages/deep-learning
 
 https://sdsclub.com/5-data-analysis-techniques-that-can-surprise-you/?utm_content=educational&utm_campaign=2020-11-24&utm_source=email-sendgrid&utm_term=27129696&utm_medium=1007240
+
+http://neuralnetworksanddeeplearning.com/chap4.html
