@@ -1,5 +1,12 @@
 ## Notes
 
+Kmeans Clustering specifically tries to put the data into the number of cluster you tell it to.
+
+Eucliden distance is: 
+
+    root of xi^2 + yi^2
+
+
 Input: K, set of points x1...xn
 Placing Centroids c1...ck at random locations.
 Repeat until Convergence:
