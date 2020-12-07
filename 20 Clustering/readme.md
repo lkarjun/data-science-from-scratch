@@ -6,7 +6,7 @@ Metrics used in Kmeans
 
     Eucliden distance is: 
 
-        root of xi^2 + yi^2
+        root of (x2 - x1)^2 + (y2 - y1)^2
 
     Manhatted metrics.
 
