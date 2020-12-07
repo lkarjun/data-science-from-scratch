@@ -27,3 +27,10 @@ Repeat until Convergence:
 3 Re-compute (update) the centroids using the current cluster memberships
 4 if a convergence criterion is not met, go to step 2.
 
+
+** Elbow method
+     
+   Repeat k = 1 to 20
+   Find Wcss = sumation of i = 1 to n (ci + xi) ^2
+
+   wcss ( With in cluster sum of square)
