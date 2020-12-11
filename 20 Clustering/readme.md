@@ -34,3 +34,9 @@ Repeat until Convergence:
    Find Wcss = sumation of i = 1 to n (ci + xi) ^2
 
    wcss ( With in cluster sum of square)
+
+
+## Hierarchical Clustering
+
+1 Figure out Which point is similar to any other points.
+2 
