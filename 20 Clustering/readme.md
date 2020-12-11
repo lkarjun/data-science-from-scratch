@@ -35,6 +35,8 @@ Repeat until Convergence:
 
    wcss ( With in cluster sum of square)
 
+*** Kmeans is limited to linear cluster boundaries
+
 
 ## Hierarchical Clustering
 
