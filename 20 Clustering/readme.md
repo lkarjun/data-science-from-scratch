@@ -37,6 +37,8 @@ Repeat until Convergence:
 
 *** Kmeans is limited to linear cluster boundaries
 
+![alt text](https://github.com/lkarjun/Data-Science-from-Scratch/blob/master/20%20Clustering/moon.png?raw=true)
+
 
 ## Hierarchical Clustering
 
