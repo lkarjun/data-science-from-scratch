@@ -51,3 +51,7 @@ Repeat until Convergence:
 
 2   find the two closest clusters and merge them.
 
+3   Merge two points into one cluster which as min disatance
+
+4   Repeat this process until all points in your dataset is exhausted.
+
