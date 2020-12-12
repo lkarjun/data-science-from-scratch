@@ -55,3 +55,9 @@ Repeat until Convergence:
 
 4   Repeat this process until all points in your dataset is exhausted.
 
+
+## Validation Techinque
+
+    Silhouette clustering Validaiton.
+
+![alt text](https://github.com/lkarjun/Data-Science-from-Scratch/blob/master/20%20Clustering/formula1.png)
