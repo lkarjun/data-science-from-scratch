@@ -60,4 +60,9 @@ Repeat until Convergence:
 
     Silhouette clustering Validaiton.
 
+For data point i (- Ci (data point i in the cluster Ci)
+
 ![alt text](https://github.com/lkarjun/Data-Science-from-Scratch/blob/master/20%20Clustering/formula1.png)
+
+
+![alt text](https://github.com/lkarjun/Data-Science-from-Scratch/blob/master/20%20Clustering/formula2.png)
