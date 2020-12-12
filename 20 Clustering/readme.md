@@ -42,5 +42,12 @@ Repeat until Convergence:
 
 ## Hierarchical Clustering
 
-1 Figure out Which point is similar to any other points.
-2 
+    Mainly two type
+
+        Alggomerative
+        Divisivie
+
+1   Make each input its own cluster of one. As long as there are multiple clusters remaining
+
+2   find the two closest clusters and merge them.
+
