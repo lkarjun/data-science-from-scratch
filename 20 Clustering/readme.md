@@ -58,9 +58,24 @@ Repeat until Convergence:
 
 ## Validation Techinque
 
-    Silhouette clustering Validaiton.
+Cohesion
 
-For data point i (- Ci (data point i in the cluster Ci)
+    Measure the distance of one point in the same cluster.
+
+Separation
+
+    Measure of one point which is in one clusters that you measure with points in other cluster.
+
+
+Silhouette clustering Validaiton.
+
+        value ranges from [-1, 1]
+
+        -1 clustering is wrong
+         0 In different same
+         1 Both clusters are far away
+
+        
 
 ![alt text](https://github.com/lkarjun/Data-Science-from-Scratch/blob/master/20%20Clustering/formula1.png)
 
