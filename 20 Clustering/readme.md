@@ -1,6 +1,7 @@
 ## Notes
 
 Kmeans Clustering specifically tries to put the data into the number of cluster you tell it to.
+Example of centroid based algorithm
 
 Metrics used in Kmeans
 
@@ -58,6 +59,11 @@ Repeat until Convergence:
 
 ## Validation Techinque
 
+Inertia
+
+        It is the mean squared distance between each instance and its
+        closest centroid. 
+
 Cohesion
 
     Measure the distance of one point in the same cluster.
@@ -72,20 +78,22 @@ Silhouette clustering Validaiton.
         value ranges from [-1, 1]
 
         -1 clustering is wrong
-         0 In different same
+
+         0 In different same (The distance between clusters is not significant.)
+
          1 Both clusters are far away
 
     1 = a(i) =   find out all distance with in cluster.
 ![alt text](https://github.com/lkarjun/Data-Science-from-Scratch/blob/master/20%20Clustering/formula1.png)
 
     2 = b(i) =   Consider another cluster. suppose we have 2 clusters
-                 c1 and c2, Find out nearest cluster by calculating 
-                 average distance from point to points.
+                 c1 and c2, the average distance between all clusters.
 
 ![alt text](https://github.com/lkarjun/Data-Science-from-Scratch/blob/master/20%20Clustering/formula2.png)
 
     3 = s(i) = if our clustering done properly ai << bi
                if not ai >> bi.
+               if it 0 clustering is okay...
 
 ![alt text](https://github.com/lkarjun/Data-Science-from-Scratch/blob/master/20%20Clustering/formula3.png)
 
