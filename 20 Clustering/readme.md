@@ -75,9 +75,20 @@ Silhouette clustering Validaiton.
          0 In different same
          1 Both clusters are far away
 
-        
-
+    1 = a(i) =   find out all distance with in cluster.
 ![alt text](https://github.com/lkarjun/Data-Science-from-Scratch/blob/master/20%20Clustering/formula1.png)
 
+    2 = b(i) =   Consider another cluster. suppose we have 2 clusters
+                 c1 and c2, Find out nearest cluster by calculating 
+                 average distance from point to points.
 
 ![alt text](https://github.com/lkarjun/Data-Science-from-Scratch/blob/master/20%20Clustering/formula2.png)
+
+    3 = s(i) = if our clustering done properly ai << bi
+               if not ai >> bi.
+
+![alt text](https://github.com/lkarjun/Data-Science-from-Scratch/blob/master/20%20Clustering/formula3.png)
+
+
+
+reference https://en.wikipedia.org/wiki/Silhouette_(clustering)#:~:text=The%20silhouette%20value%20is%20a,poorly%20matched%20to%20neighboring%20clusters
