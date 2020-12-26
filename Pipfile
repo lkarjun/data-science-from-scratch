@@ -27,6 +27,7 @@ scikit-learn = "*"
 seaborn = "*"
 pep8 = "*"
 pylint = "*"
+nltk = "*"
 
 [requires]
 python_version = "3.8"
