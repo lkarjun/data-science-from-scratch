@@ -43,12 +43,13 @@ def forward_propagation(X, parameters):
     print("shape of X", X.shape)
     z1 = (np.dot(W1, X)) + b1
     a1 = np.tanh(z1)
+    print(a1.shape)
     z2 = (np.dot(W2, a1)) + b2
     a2 = sigmoid(z2)
 
     print(a2.shape)
-    print(X.shape[1])
-    assert(a2.shape == (1, X.shape[1]))
+    # print(X.shape[1])
+    assert(a2.shape == (1, X.shape[1])), "check there is somthing wrong"
 
     cache = {'Z1':z1, 'A1': a1, 'Z2': z2, 'A2': a2}
 
