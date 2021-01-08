@@ -107,7 +107,7 @@ class NeuralNetwork:
                                      'W2': W2,
                                      'b2': b2}
         
-        self.parameter = parameter
+        self.parameters = parameter
     
     def fit(self):
         np.random.seed(0)
