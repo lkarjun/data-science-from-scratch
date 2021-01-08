@@ -1,7 +1,6 @@
 import numpy as np
 from typing import Dict, List, Tuple
 
-from numpy.core.fromnumeric import shape
 
 class NeuralNetwork:
 
@@ -20,6 +19,10 @@ class NeuralNetwork:
         self.learning_rate: int = learning_rate
         self.standardize: bool = standardize
         self.layers: Tuple = self._layer_size(self.X, self.Y)
+        self.parameters: Dict[np.array] = None
+        self.cache: Dict[np.array] = None
+        self.grads: Dict[np.array] = None
+        self.cost: int = None
 
     def _layer_size(self, x: np.array, y: np.array) -> Tuple[float]:
         n_x = self.X.shape[0]
@@ -29,7 +32,10 @@ class NeuralNetwork:
         '''return n_x, n_h, n_y order'''
         return n_x, n_h, n_y
 
-    def initialize_parameters(self) -> Dict[np.array]:
+    def sigmoid(self, z) -> np.array:
+        return 1/(1+np.exp(-z))
+
+    def initialize_parameters(self):
         np.random.seed(2)
         W1:np.array = np.random.randn(self.layers[1], self.layers[0]) * 0.01
         b1:np.array = np.zeros(shape=(self.layers[1], 1))
@@ -40,9 +46,86 @@ class NeuralNetwork:
                                      'b1': b1,
                                      'W2': W2,
                                      'b2': b2}
-        return parameter
+        self.parameter = parameter
 
     def foward_propagate(self):
-        ...
+        W1 = self.parameters['W1']
+        b1 = self.parameters['b1']
+        W2 = self.parameters['W2']
+        b2 = self.parameters['b2']
+
+        Z1 = (np.dot(W1, self.X)) + b1
+        A1 = np.tanh(Z1)
+        Z2 = (np.dot(W2, A1)) + b2
+        A2 = self.sigmoid(Z2)
+        
+        assert(A2.shape == (1, self.X.shape[1])), "check there is somthing wrong"
+        
+        cache: Dict[np.array] = {'Z1': Z1,
+                                 'Z2': Z2,
+                                 'A1': A1,
+                                 'A2': A2}
+        self.cache = cache
+        return A2
+    
+    def backward_propagate(self):
+        m = self.X.shape[1]
+
+        W1 = self.parameters['W1']
+        W2 = self.parameters['W1']
+
+        A1 = self.cache['A1']
+        A2 = self.cache['A2']
+
+        dz2 = A2 - self.Y
+        dW2 = 1/m * np.dot(dz2, A2.T)
+        db2 = 1/m * np.sum(dz2, axis=1, keepdims=True)
+        dz1 = np.multiply(np.dot(W2.T, dz2), (1- np.power(A1, 2)))
+        dW1 = 1/m * np.dot(dz1, W1)
+        db1 = 1/m * np.sum(dz1, axis=1, keepdims=True)
+
+        grads: Dict[np.array] = {'dW1': dW1,
+                                 'dW2': dW2,
+                                 'db1': db1,
+                                 'db2': db2} 
+        
+        self.grads = grads
+    
+    def compute_cost(self):
+        m = self.Y.shape[1]
+        A2 = self.cache['A2']
+        cost = (-1/m) * np.sum(self.Y*np.log(A2) + (1-self.Y) * np.log(1-A2))
+        self.cost = cost
+
+    def update_parameter(self):
+        W1 = self.parameters['W1'] - self.learning_rate * self.grads['dW1']
+        b1 = self.parameters['b1'] - self.learning_rate * self.grads['db1']
+        W2 = self.parameters['W2'] - self.learning_rate * self.grads['dW2']
+        b2 = self.parameters['b2'] - self.learning_rate * self.grads['db2']
+
+        parameter: Dict[np.array] = {'W1': W1,
+                                     'b1': b1,
+                                     'W2': W2,
+                                     'b2': b2}
+        
+        self.parameter = parameter
+    
+    def fit(self):
+        np.random.seed(0)
+        self.initialize_parameters()
+
+        for i in self.epochs:
+            self.foward_propagate()
+            self.compute_cost()
+            self.backward_propagate()
+            self.backward_propagate()
+
+            if i % 1000 == 0:
+                print(f'Cost after iteration {i, self.cost}')
+        
+        return self.parameter
+            
+
+
 
 c = NeuralNetwork()
