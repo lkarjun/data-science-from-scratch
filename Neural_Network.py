@@ -6,7 +6,7 @@ class NeuralNetwork:
 
     def __init__(self, X: np.array,
                        Y: np.array, 
-                       hidden_layer: List[int] = 32,
+                       hidden_layer: int = 4,
                        epochs: int = 1000,
                        learning_rate: int = 0.01,
                        standardize: bool = False) -> None:
@@ -14,7 +14,7 @@ class NeuralNetwork:
         print("Welcome To Lk Nueral Network")
         self.X: np.array = X
         self.Y: np.array = Y
-        self.hidden_layer: List[int] = hidden_layer
+        self.hidden_layers: int = hidden_layer
         self.epochs: int = epochs
         self.learning_rate: int = learning_rate
         self.standardize: bool = standardize
@@ -24,9 +24,9 @@ class NeuralNetwork:
         self.grads: Dict[np.array] = None
         self.cost: int = None
 
-    def _layer_size(self, x: np.array, y: np.array) -> Tuple[float]:
+    def _layer_size(self, x: np.array, y: np.array) -> Tuple[int]:
         n_x = self.X.shape[0]
-        n_h = self.hidden_layer[-1]
+        n_h = self.hidden_layers
         n_y = self.Y.shape[0]
 
         '''return n_x, n_h, n_y order'''
@@ -46,7 +46,7 @@ class NeuralNetwork:
                                      'b1': b1,
                                      'W2': W2,
                                      'b2': b2}
-        self.parameter = parameter
+        self.parameters = parameter
 
     def foward_propagate(self):
         W1 = self.parameters['W1']
@@ -69,25 +69,24 @@ class NeuralNetwork:
         return A2
     
     def backward_propagate(self):
-        m = self.X.shape[1]
-
+        m = X.shape[1]
         W1 = self.parameters['W1']
-        W2 = self.parameters['W1']
+        W2 = self.parameters['W2']
 
         A1 = self.cache['A1']
         A2 = self.cache['A2']
 
         dz2 = A2 - self.Y
-        dW2 = 1/m * np.dot(dz2, A2.T)
+        dW2 = 1/m * np.dot(dz2, A1.T)
         db2 = 1/m * np.sum(dz2, axis=1, keepdims=True)
         dz1 = np.multiply(np.dot(W2.T, dz2), (1- np.power(A1, 2)))
-        dW1 = 1/m * np.dot(dz1, W1)
+        dW1 = 1/m * np.dot(dz1, self.X.T)
         db1 = 1/m * np.sum(dz1, axis=1, keepdims=True)
 
-        grads: Dict[np.array] = {'dW1': dW1,
-                                 'dW2': dW2,
-                                 'db1': db1,
-                                 'db2': db2} 
+        grads = {'dW1': dW1,
+             'dW2': dW2,
+             'db1': db1,
+             'db2': db2} 
         
         self.grads = grads
     
@@ -117,15 +116,33 @@ class NeuralNetwork:
         if self.standardize:
             self.X = StandardScaler().fit_transform(self.X)
 
-        for i in self.epochs:
+        for i in range(0, self.epochs):
             self.foward_propagate()
             self.compute_cost()
             self.backward_propagate()
-            self.backward_propagate()
-
+            self.update_parameter()
             if i % 1000 == 0:
                 print(f'Cost after iteration {i, self.cost}')
         
-        return self.parameter
+        return self.parameters
             
 
+
+
+
+
+import numpy as np
+from sklearn.datasets import make_moons
+from sklearn.model_selection import train_test_split
+
+data = make_moons(n_samples=500)
+X = data[0]
+Y = data[1]
+x_train, x_test, y_train, y_test = train_test_split(X, Y)
+
+neural_network = NeuralNetwork(x_train.reshape(2, -1),
+                               y_train.reshape(1, -1),
+                               epochs = 500,
+                               standardize = True)
+
+neural_network.fit()
