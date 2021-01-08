@@ -110,7 +110,7 @@ class NeuralNetwork:
         self.parameters = parameter
     
     def fit(self):
-        np.random.seed(0)
+        np.random.seed(2)
         self.initialize_parameters()
 
         if self.standardize:
@@ -121,8 +121,27 @@ class NeuralNetwork:
             self.compute_cost()
             self.backward_propagate()
             self.update_parameter()
-            if i % 2 == 0:
+            if i % 1000 == 0:
                 print(f'Epochs = {i}, Cost = {self.cost}')
         
         print(self.parameters)
         return self.parameters
+
+
+    def predict(self, data, parameters) -> float:
+        def foward_propagate(X, parameters):
+            W1 = parameters['W1']
+            b1 = parameters['b1']
+            W2 = parameters['W2']
+            b2 = parameters['b2']
+
+            Z1 = (np.dot(W1, X)) + b1
+            A1 = np.tanh(Z1)
+            Z2 = (np.dot(W2, A1)) + b2
+            A2 = self.sigmoid(Z2)
+        
+            return A2
+    
+        A2 = foward_propagate(data, parameters)
+
+        return A2
