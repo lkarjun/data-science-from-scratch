@@ -11,7 +11,7 @@ class NeuralNetwork:
                        learning_rate: int = 0.01,
                        standardize: bool = False) -> None:
 
-        print("Welcome To Lk Nueral Network")
+        print("\n Welcome To Lk Nueral Network \n ")
         self.X: np.array = X
         self.Y: np.array = Y
         self.hidden_layers: int = hidden_layer
@@ -69,7 +69,7 @@ class NeuralNetwork:
         return A2
     
     def backward_propagate(self):
-        m = X.shape[1]
+        m = self.X.shape[1]
         W1 = self.parameters['W1']
         W2 = self.parameters['W2']
 
@@ -121,28 +121,8 @@ class NeuralNetwork:
             self.compute_cost()
             self.backward_propagate()
             self.update_parameter()
-            if i % 1000 == 0:
-                print(f'Cost after iteration {i, self.cost}')
+            if i % 2 == 0:
+                print(f'Epochs = {i}, Cost = {self.cost}')
         
+        print(self.parameters)
         return self.parameters
-            
-
-
-
-
-
-import numpy as np
-from sklearn.datasets import make_moons
-from sklearn.model_selection import train_test_split
-
-data = make_moons(n_samples=500)
-X = data[0]
-Y = data[1]
-x_train, x_test, y_train, y_test = train_test_split(X, Y)
-
-neural_network = NeuralNetwork(x_train.reshape(2, -1),
-                               y_train.reshape(1, -1),
-                               epochs = 500,
-                               standardize = True)
-
-neural_network.fit()
