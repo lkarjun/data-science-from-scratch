@@ -1,6 +1,6 @@
 import numpy as np
 from typing import Dict, List, Tuple
-
+from sklearn.preprocessing import StandardScaler
 
 class NeuralNetwork:
 
@@ -114,6 +114,9 @@ class NeuralNetwork:
         np.random.seed(0)
         self.initialize_parameters()
 
+        if self.standardize:
+            self.X = StandardScaler().fit_transform(self.X)
+
         for i in self.epochs:
             self.foward_propagate()
             self.compute_cost()
@@ -126,6 +129,3 @@ class NeuralNetwork:
         return self.parameter
             
 
-
-
-c = NeuralNetwork()
