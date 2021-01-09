@@ -47,7 +47,7 @@ class DeepNeuralNetwork:
 
 sample_data = np.array([[1,2,3],[2,3,4]]).reshape(2,-1)
 sample_x = np.array([[0, 1]]).reshape(1, -1)
-model = DeepNeuralNetwork(sample_data, sample_x, [2, 3, 2])
+model = DeepNeuralNetwork(sample_data, sample_x, [2,64, 64, 2])
 
 print(model.layer_size())
 from pprint import pprint
