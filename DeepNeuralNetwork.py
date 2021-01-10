@@ -14,9 +14,9 @@ class DeepNeuralNetwork:
         self.Layer = None
         self.cache = None
 
-    def initialize_parameters(self):
+    def initialize_parameters(self) -> Dict[str, np.array]:
         Layers = self.layer_size()
-        parameters: Dict[np.array] = {}
+        parameters: Dict[str, np.array] = {}
 
         for i in range(1, len(Layers)):
             parameters["W"+str(i)] = np.random.randn(Layers[i], Layers[i-1]) * 0.1
@@ -25,7 +25,7 @@ class DeepNeuralNetwork:
         self.param = parameters
         return parameters
 
-    def layer_size(self):
+    def layer_size(self) -> List[int]:
         Layer_0 = [self.X.shape[0]]
         Layer_last = [self.Y.shape[0]]
         Layer_hidden = self.hidden_layers
@@ -33,8 +33,8 @@ class DeepNeuralNetwork:
         self.Layer = full_layer
         return full_layer
 
-    def forward_pass(self):
-        cache: Dict[np.array] = {}
+    def forward_pass(self) -> Dict[str, np.array]:
+        cache: Dict[str, np.array] = {}
         cache['Z1'] = (np.dot(self.param['W1'], 
                         self.X)) + self.param['b1']
         cache['A1'] = np.tanh(cache['Z1'])
@@ -52,6 +52,8 @@ class DeepNeuralNetwork:
 
     
     def backward_pass(self):
+        m = self.X.shape[1]
+        grads: Dict[str, np.array] = {}
         ...
     
     def update_parameters(self):
@@ -63,9 +65,11 @@ class DeepNeuralNetwork:
     def predict(self):
         ...
     
-    def sigmoid(self, z):
+    def sigmoid(self, z: np.array) -> np.array:
         return 1/(1+np.exp(-z))
 
+    def derivative_of_Activation(selk, data: np.array, Activation: str) -> np.array:
+        ...
 
 sample_data = np.array([[1,2,3],[2, 6, 8]]).reshape(2,-1)
 sample_y = np.array([[0, 1]]).reshape(1, -1)
