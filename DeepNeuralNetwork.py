@@ -54,7 +54,12 @@ class DeepNeuralNetwork:
     def backward_pass(self):
         m = self.X.shape[1]
         grads: Dict[str, np.array] = {}
-        ...
+        i = self.layer_size() - 1
+
+        while i > 1:
+            grads["dz"+str(i)] = self.cache['A' + str(i)]
+            i -= 1
+            ...
     
     def update_parameters(self):
         ...
@@ -68,7 +73,7 @@ class DeepNeuralNetwork:
     def sigmoid(self, z: np.array) -> np.array:
         return 1/(1+np.exp(-z))
 
-    def derivative_of_Activation(selk, data: np.array, Activation: str) -> np.array:
+    def derivative_of_Activation(self, data: np.array, Activation: str) -> np.array:
         ...
 
 sample_data = np.array([[1,2,3],[2, 6, 8]]).reshape(2,-1)
@@ -80,3 +85,5 @@ from pprint import pprint
 pprint(model.initialize_parameters())
 
 pprint(model.forward_pass())
+print(len(model.layer_size()) - 1)
+print(model.layer_size())
