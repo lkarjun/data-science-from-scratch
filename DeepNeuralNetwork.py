@@ -54,12 +54,19 @@ class DeepNeuralNetwork:
     def backward_pass(self):
         m = self.X.shape[1]
         grads: Dict[str, np.array] = {}
-        i = self.layer_size() - 1
+        i = len(self.layer_size()) - 1
 
         while i > 1:
-            grads["dz"+str(i)] = self.cache['A' + str(i)]
+            grads["dz"+str(i)] = self.cache['A'+str(i)] - self.Y
+            grads["dw"+str(i)] = 1/m * np.dot(grads['dz'+str(i)], self.cache['A'+str(i-1)].T)
+            grads["db"+str(i)] = 1/m * np.sum(grads['dz'+str(i)], axis=1, keepdims=True)
             i -= 1
-            ...
+
+        grads['dz1'] = self.cache['A1'] - self.Y
+        grads['dw1'] = 1/m * np.dot(grads['dz1'], self.X.T)
+        grads['db1'] = 1/m * np.sum(grads['dz1'], axis=1, keepdims=True)
+
+        return grads
     
     def update_parameters(self):
         ...
@@ -77,8 +84,8 @@ class DeepNeuralNetwork:
         ...
 
 sample_data = np.array([[1,2,3],[2, 6, 8]]).reshape(2,-1)
-sample_y = np.array([[0, 1]]).reshape(1, -1)
-model = DeepNeuralNetwork(sample_data, sample_y, [4, 10,20, 10, 3])
+sample_y = np.array([[0], [1], [3]]).reshape(1, -1)
+model = DeepNeuralNetwork(sample_data, sample_y, [2, 4, 2])
 
 print(model.layer_size())
 from pprint import pprint
@@ -87,3 +94,6 @@ pprint(model.initialize_parameters())
 pprint(model.forward_pass())
 print(len(model.layer_size()) - 1)
 print(model.layer_size())
+print(sample_y)
+
+pprint(model.backward_pass())
