@@ -33,3 +33,5 @@
         =>  Total Gini impurity
                 = weighted average of gini impurities for both right and left nodes
         
+	=> then look for lowest gini impurity value
+		= then makes that as the root node
