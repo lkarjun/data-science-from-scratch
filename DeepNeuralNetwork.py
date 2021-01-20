@@ -77,9 +77,14 @@ class DeepNeuralNetwork:
     
     def predict(self):
         ...
-    
-    def sigmoid(self, z: np.array) -> np.array:
-        return 1/(1+np.exp(-z))
+
+    def Activation(self, data: np.array, activation: str) -> np.array:
+        
+        def sigmoid(self, z: np.array) -> np.array:
+            return 1/(1+np.exp(-z))
+        
+        def tanh(self, z: np.array) -> np.array:
+            return np.tanh(z)
 
     def derivative_of_Activation(self, data: np.array, Activation: str) -> np.array:
         ...
