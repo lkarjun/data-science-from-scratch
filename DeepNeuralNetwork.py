@@ -6,13 +6,15 @@ from numpy.core.numeric import full
 
 class DeepNeuralNetwork:
 
-    def __init__(self, X: np.array, Y: np.array, hidden_layers: List[int]) -> None:
+    def __init__(self, X: np.array, Y: np.array, hidden_layers: List[int], activations: List[str]) -> None:
         self.X = X
         self.Y = Y
         self.hidden_layers: List[int] = hidden_layers
+        self.activation: List[str] = activations
         self.param = None
         self.Layer = None
         self.cache = None
+        self.grads = None
 
     def initialize_parameters(self) -> Dict[str, np.array]:
         Layers = self.layer_size()
@@ -39,9 +41,6 @@ class DeepNeuralNetwork:
                         self.X)) + self.param['b1']
         cache['A1'] = np.tanh(cache['Z1'])
 
-        print('=' * 30)
-        print(cache)
-        print('=' * 30)
         for i in range(2, len(self.Layer)):
             cache['Z'+str(i)] = (np.dot(self.param['W'+str(i)],
                                     cache['A'+str(i-1)])) + self.param['b'+str(i)]
@@ -66,6 +65,8 @@ class DeepNeuralNetwork:
         grads['dw1'] = 1/m * np.dot(grads['dz1'], self.X.T)
         grads['db1'] = 1/m * np.sum(grads['dz1'], axis=1, keepdims=True)
 
+        self.grads = grads
+
         return grads
     
     def update_parameters(self):
@@ -85,7 +86,7 @@ class DeepNeuralNetwork:
 
 sample_data = np.array([[1,2,3],[2, 6, 8]]).reshape(2,-1)
 sample_y = np.array([[0], [1], [3]]).reshape(1, -1)
-model = DeepNeuralNetwork(sample_data, sample_y, [2, 4, 2])
+model = DeepNeuralNetwork(sample_data, sample_y, [10, 10], ['relu', 'sigmoid'])
 
 print(model.layer_size())
 from pprint import pprint
