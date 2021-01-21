@@ -7,6 +7,7 @@ from numpy.core.numeric import full
 class DeepNeuralNetwork:
 
     def __init__(self, X: np.array, Y: np.array, hidden_layers: List[int], activations: List[str]) -> None:
+        assert len(activations) != len(hidden_layers), "\n>>> hidden_layer = [10,20];\n>>> activations = [relu, tanh, sigmoid];\nMention final layer activation"
         self.X = X
         self.Y = Y
         self.hidden_layers: List[int] = hidden_layers
@@ -39,12 +40,15 @@ class DeepNeuralNetwork:
         cache: Dict[str, np.array] = {}
         cache['Z1'] = (np.dot(self.param['W1'], 
                         self.X)) + self.param['b1']
-        cache['A1'] = np.tanh(cache['Z1'])
+        cache['A1'] = self.Activation(data = cache['Z1'], activation = self.activation[0])
+        cache['A1_activation'] = self.activation[0]
 
         for i in range(2, len(self.Layer)):
             cache['Z'+str(i)] = (np.dot(self.param['W'+str(i)],
                                     cache['A'+str(i-1)])) + self.param['b'+str(i)]
-            cache['A'+str(i)] = np.tanh(cache['Z'+str(i)])
+            # cache['A'+str(i)] = np.tanh(cache['Z'+str(i)])
+            cache['A'+str(i)] = self.Activation(data = cache['Z'+str(i)], activation = self.activation[i-1])
+            cache['A'+str(i)+'_activation'] = self.activation[i-1]
 
         self.cache = cache
         return cache
@@ -79,19 +83,23 @@ class DeepNeuralNetwork:
         ...
 
     def Activation(self, data: np.array, activation: str) -> np.array:
-        
-        def sigmoid(self, z: np.array) -> np.array:
+
+        def sigmoid(z: np.array) -> np.array:
             return 1/(1+np.exp(-z))
         
-        def tanh(self, z: np.array) -> np.array:
+        def tanh(z: np.array) -> np.array:
             return np.tanh(z)
+
+        if activation == 'sigmoid': return sigmoid(data)
+        if activation == 'tanh': return tanh(data)
+
 
     def derivative_of_Activation(self, data: np.array, Activation: str) -> np.array:
         ...
 
 sample_data = np.array([[1,2,3],[2, 6, 8]]).reshape(2,-1)
 sample_y = np.array([[0], [1], [3]]).reshape(1, -1)
-model = DeepNeuralNetwork(sample_data, sample_y, [10, 10], ['relu', 'sigmoid'])
+model = DeepNeuralNetwork(sample_data, sample_y, [10, 10], ['tanh', 'tanh', 'sigmoid'])
 
 print(model.layer_size())
 from pprint import pprint
